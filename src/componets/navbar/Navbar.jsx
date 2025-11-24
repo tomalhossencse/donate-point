@@ -41,14 +41,28 @@ const NavBar = () => {
   //       });
   //   };
   const links = (
-    <div className="flex gap-6">
-      <Link href="/" className="text-secondary font-medium">
-        Home
-      </Link>
-      <Link href="/be-a-doner" className="text-secondary font-medium">
-        Be a Doner
-      </Link>
-    </div>
+    <>
+      <li>
+        <Link href="/" className="text-secondary font-medium">
+          Home
+        </Link>
+      </li>
+      <li>
+        <Link href="/be-a-doner" className="text-secondary font-medium">
+          Be a Doner
+        </Link>
+      </li>
+      <li>
+        <Link href="/register" className="text-secondary font-medium">
+          Register
+        </Link>
+      </li>
+      <li>
+        <Link href="/login" className="text-secondary font-medium">
+          Login
+        </Link>
+      </li>
+    </>
   );
   return (
     <div className="bg-base-100 shadow-md fixed w-full top-0 z-20 md:px-0 px-4">
