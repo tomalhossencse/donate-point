@@ -1,5 +1,6 @@
 import Container from "@/componets/Container";
 import Banner from "@/componets/home/Banner";
+
 import Image from "next/image";
 
 export default function Home() {
