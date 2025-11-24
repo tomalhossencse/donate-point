@@ -1,45 +1,48 @@
 "use client";
 import Container from "@/componets/Container";
+import { AuthContext } from "@/context/AuthContext";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
+import { FaUser } from "react-icons/fa6";
+import { IoLogIn } from "react-icons/io5";
+import { LuLogOut } from "react-icons/lu";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
-  //   const navigate = useNavigate();
-  //   const { user, handleLogout } = use(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const { user, handleLogout } = use(AuthContext);
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  useEffect(() => {
-    const html = document.querySelector("html");
-    html.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   const html = document.querySelector("html");
+  //   html.setAttribute("data-theme", theme);
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
 
-  const handleTheme = (checked) => {
-    setTheme(checked ? "dark" : "light");
+  // const handleTheme = (checked) => {
+  //   setTheme(checked ? "dark" : "light");
+  // };
+
+  const logoutUser = () => {
+    handleLogout()
+      .then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logout Successful!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
   };
-
-  //   const logoutUser = () => {
-  //     handleLogout()
-  //       .then(() => {
-  //         Swal.fire({
-  //           position: "top-end",
-  //           icon: "success",
-  //           title: "Logout Successful!",
-  //           showConfirmButton: false,
-  //           timer: 1000,
-  //         });
-  //         navigate("/login");
-  //       })
-  //       .catch((error) => {
-  //         Swal.fire({
-  //           position: "top-end",
-  //           icon: "error",
-  //           title: error,
-  //           showConfirmButton: false,
-  //           timer: 1000,
-  //         });
-  //       });
-  //   };
   const links = (
     <>
       <li>
@@ -115,7 +118,7 @@ const NavBar = () => {
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
-            {/* {user ? (
+            {user ? (
               <div className="dropdown dropdown-end z-50">
                 <div
                   tabIndex={0}
@@ -126,10 +129,7 @@ const NavBar = () => {
                     <img
                       alt="Tailwind CSS Navbar component"
                       referrerPolicy="no-referrer"
-                      src={
-                        user.photoURL ||
-                        "https://avatars.githubusercontent.com/u/195260435?v=4"
-                      }
+                      src={user?.photoURL}
                     />
                   </div>
                 </div>
@@ -142,7 +142,7 @@ const NavBar = () => {
                     <li className="text-xs">{user.email}</li>
                   </div>
                   <li className="mt-3">
-                    <Link to={"/profile"}>
+                    <Link href={"/profile"}>
                       <FaUser /> Profile
                     </Link>
                   </li>
@@ -151,20 +151,20 @@ const NavBar = () => {
                       onClick={logoutUser}
                       className="btn-xs bg-primary text-white font-bold text-md rounded-md shadow-md hover:bg-black transition-transform hover:scale-105"
                     >
-                      <IoLogOut /> Logout
+                      <LuLogOut /> Logout
                     </button>
                   </li>
                 </ul>
               </div>
             ) : (
               <Link
-                to={"/login"}
+                href={"/login"}
                 className="btn btn-sm bg-primary rounded-md shadow-md hover:bg-black transition-transform hover:scale-105  text-white"
               >
                 {" "}
                 <IoLogIn /> Login
               </Link>
-            )} */}
+            )}
 
             <div className="px-10">
               {" "}
@@ -184,9 +184,9 @@ const NavBar = () => {
                   <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
                 </svg>
                 <input
-                  onChange={(e) => handleTheme(e.target.checked)}
+                  // onChange={(e) => handleTheme(e.target.checked)}
                   type="checkbox"
-                  defaultChecked={localStorage.getItem("theme") === "dark"}
+                  // defaultChecked={localStorage.getItem("theme") === "dark"}
                   className="toggle theme-controller"
                 />
                 <svg
