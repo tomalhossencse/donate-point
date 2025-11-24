@@ -2,6 +2,7 @@
 import Container from "@/componets/Container";
 import { AuthContext } from "@/context/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa6";
 import { IoLogIn } from "react-icons/io5";
@@ -10,6 +11,7 @@ import Swal from "sweetalert2";
 
 const NavBar = () => {
   const { user, handleLogout } = use(AuthContext);
+  const router = useRouter();
   // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   // useEffect(() => {
@@ -32,6 +34,7 @@ const NavBar = () => {
           showConfirmButton: false,
           timer: 1000,
         });
+        router.push("/login");
       })
       .catch((error) => {
         Swal.fire({

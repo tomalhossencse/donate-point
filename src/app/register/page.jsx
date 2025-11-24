@@ -3,6 +3,7 @@ import Container from "@/componets/Container";
 import { AuthContext } from "@/context/AuthContext";
 import SocialLogin from "@/Utility/SocialLogin";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { use } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -15,7 +16,7 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
-
+  const router = useRouter();
   const handleOnsubmit = (data) => {
     // console.log(data);
     const email = data.email;
@@ -25,11 +26,11 @@ const Register = () => {
     const profile = { displayName, photoURL };
     handleSignInuser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
 
         updateUserProfile(profile)
           .then((result) => {
-            console.log(result);
+            // console.log(result);
             Swal.fire({
               position: "top-end",
               icon: "success",
@@ -37,6 +38,7 @@ const Register = () => {
               showConfirmButton: false,
               timer: 1000,
             });
+            router.push("/");
           })
           .catch((error) => {
             Swal.fire({

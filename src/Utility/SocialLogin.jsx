@@ -1,12 +1,15 @@
 import { AuthContext } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 import React, { useContext } from "react";
+import Swal from "sweetalert2";
 
 const SocialLogin = () => {
   const { handleSignInGoogle } = useContext(AuthContext);
+  const router = useRouter();
   const googleSignIn = () => {
     handleSignInGoogle()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -14,10 +17,16 @@ const SocialLogin = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        navigate(location?.state || "/");
+        router.push("/");
       })
       .catch((error) => {
-        console.log(error);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: error,
+          showConfirmButton: false,
+          timer: 1000,
+        });
       });
   };
 

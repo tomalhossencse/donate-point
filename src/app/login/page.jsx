@@ -17,12 +17,12 @@ const Login = () => {
   } = useForm();
 
   const handleOnsubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     const email = data.email;
     const password = data.password;
     handleLoginUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         Swal.fire({
           position: "top-end",
           icon: "success",
