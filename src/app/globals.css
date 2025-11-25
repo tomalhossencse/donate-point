@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+body {
+    font-family: "Inter", sans-serif;
+}
 
 @import "tailwindcss";
 @plugin "daisyui";
@@ -40,7 +43,7 @@ body {
   --color-primary: #E0294C;
   --color-secondary: #03373D;
   --color-primary-content : #606060;
-  --color-secondary-content: #1F1F1F;
+  --color-secondary-content: #CAEB66;
   --color-base-300 : #e7e7e7;
   --color-accent: #4D4D4D;
   --color-accent-content :#F5F7FA;
@@ -49,9 +52,7 @@ body {
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 
-body{
-    font-family: "Urbanist", sans-serif;
-}
+
 .btn-primary{
   @apply btn bg-primary rounded-3xl px-8 py-6 text-xl font-bold text-secondary-content hover:bg-base-100;
 }

@@ -59,6 +59,11 @@ const NavBar = () => {
         </Link>
       </li>
       <li>
+        <Link href="/search-doners" className="text-secondary font-medium">
+          Search Doners
+        </Link>
+      </li>
+      <li>
         <Link href="/register" className="text-secondary font-medium">
           Register
         </Link>
