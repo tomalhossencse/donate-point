@@ -1,18 +1,20 @@
 import { AuthContext } from "@/context/AuthContext";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useContext } from "react";
 import Swal from "sweetalert2";
 
 const SocialLogin = () => {
   const { handleSignInGoogle } = useContext(AuthContext);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectPath = searchParams.get("redirect");
   const googleSignIn = () => {
     handleSignInGoogle()
       .then((result) => {
         const authToken = result.user.accessToken;
         if (authToken) {
           localStorage.setItem("authToken", authToken);
-          console.log("Token successfully set!");
+          // console.log("Token successfully set!");
         }
         Swal.fire({
           position: "top-end",
@@ -21,7 +23,8 @@ const SocialLogin = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        router.push("/");
+
+        router.push(redirectPath || "/");
       })
       .catch((error) => {
         Swal.fire({

@@ -7,6 +7,8 @@ import { AuthContext } from "@/context/AuthContext";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useRouter } from "next/navigation";
 import PrivateRoute from "@/Utility/PrivateRoute";
+import Swal from "sweetalert2";
+import { DateFormat } from "@/Utility/FormetDate";
 
 const Rider = () => {
   const { user } = useContext(AuthContext);
@@ -34,6 +36,8 @@ const Rider = () => {
   };
 
   const handleBeDoner = async (data) => {
+    data.contributerEmail = user.email;
+    data.createAt = DateFormat(new Date());
     console.log(data);
     await axiosSecure
       .post("/doners", data)

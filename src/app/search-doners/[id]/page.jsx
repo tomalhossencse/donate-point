@@ -8,6 +8,8 @@ import { CiLocationOn } from "react-icons/ci";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { FaPhoneVolume, FaRegCircleUser } from "react-icons/fa6";
 import { HiCalendarDateRange } from "react-icons/hi2";
+import { IoIosTime } from "react-icons/io";
+import { IoShareSocialSharp } from "react-icons/io5";
 import { MdBloodtype, MdMarkEmailRead } from "react-icons/md";
 
 const DonerDetails = () => {
@@ -29,7 +31,7 @@ const DonerDetails = () => {
   return (
     <Container className="min-h-screen mt-30 p-6">
       <div
-        className="flex justify-between gap-12 items-center bg-base-200 p-6 rounded-xl space-y-4 shadow-md 
+        className="flex justify-between gap-12 items-center bg-base-200 py-16 px rounded-xl space-y-4 shadow-md 
             transform transition duration-300 ease-in-out 
             hover:scale-105 hover:bg-accent-content hover:-translate-y-1"
       >
@@ -59,11 +61,32 @@ const DonerDetails = () => {
               <span>{doner.email}</span>
             </div>
           </div>
-          {/* area */}
-          <div className="flex items-center gap-4 text-lg text-secondary w-3/4 px-4 py-4 rounded-md ">
-            <FaMapMarkedAlt className="text-primary" size={24} />
-            <span>{doner.area}</span>
+          <div className="flex">
+            {/* area */}
+            <div className="flex items-center gap-4 text-lg text-secondary px-4 py-4 rounded-md ">
+              <FaMapMarkedAlt className="text-primary" size={24} />
+              <span>{doner.area}</span>
+            </div>
+            {/* Added time */}
+            <div className="rounded-md flex gap-2 items-center">
+              <div className="text-primary">
+                <IoIosTime size={24} />
+              </div>
+              <p>{doner.createAt}</p>
+            </div>
           </div>
+
+          {/* contributer email */}
+          <div className="px-4 py-2 rounded-md flex gap-2 items-center js">
+            <div className="text-primary">
+              <IoShareSocialSharp size={20} />
+            </div>
+            <p>
+              <span className="font-bold text-primary">Contributor :</span>{" "}
+              {doner.contributerEmail}
+            </p>
+          </div>
+
           {/* information */}
           <div className="bg-base-300 w-3/4 px-4 py-4 rounded-m">
             {doner.information}

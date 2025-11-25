@@ -1,20 +1,29 @@
 "use client";
 import useAuth from "@/hooks/useAuth";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
+
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push("/login");
+      const loginUrl = `/login?redirect=${pathname}`;
+      router.push(loginUrl);
     }
-  }, [isLoading, isAuthenticated, router]);
+  }, [isAuthenticated, isLoading, pathname, router]);
+
   if (isLoading) {
-    <div>Loading.........</div>;
+    return <div>Loading.........</div>;
   }
-  return isAuthenticated ? <>{children}</> : null;
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
+  return <>{children}</>;
 };
 
 export default PrivateRoute;
