@@ -27,6 +27,7 @@ const NavBar = () => {
   const logoutUser = () => {
     handleLogout()
       .then(() => {
+        localStorage.removeItem("authToken");
         Swal.fire({
           position: "top-end",
           icon: "success",

@@ -9,7 +9,11 @@ const SocialLogin = () => {
   const googleSignIn = () => {
     handleSignInGoogle()
       .then((result) => {
-        // console.log(result.user);
+        const authToken = result.user.accessToken;
+        if (authToken) {
+          localStorage.setItem("authToken", authToken);
+          console.log("Token successfully set!");
+        }
         Swal.fire({
           position: "top-end",
           icon: "success",

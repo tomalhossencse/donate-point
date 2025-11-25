@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const googleProvider = new GoogleAuthProvider();
 
-  const handleSignInGoogle = () => {
+  const handleSignInGoogle = async () => {
     return signInWithPopup(auth, googleProvider);
   };
 
