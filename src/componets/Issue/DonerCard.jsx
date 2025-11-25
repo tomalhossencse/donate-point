@@ -37,11 +37,11 @@ const DonerCard = ({ doner }) => {
       </div>
       <div className="px-2 space-y-4">
         {/* contributer email */}
-        <div className="rounded-md bg-primary text-base-100 flex gap-2 py-1 px-2 items-center js">
+        <div className="rounded-md bg-primary mx-auto text-base-100 flex gap-2 py-1 px-2 items-center js">
           <div className="text-base-100">
-            <IoShareSocialSharp size={20} />
+            <IoShareSocialSharp size={16} />
           </div>
-          <p>{contributerEmail}</p>
+          <p className="text-sm">{contributerEmail}</p>
         </div>
 
         {/* create time*/}

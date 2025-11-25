@@ -3,12 +3,16 @@ import Container from "@/componets/Container";
 import { AuthContext } from "@/context/AuthContext";
 import SocialLogin from "@/Utility/SocialLogin";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const { handleLoginUser } = useContext(AuthContext);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectPath = searchParams.get("redirect");
   const {
     register,
     handleSubmit,
@@ -22,6 +26,11 @@ const Login = () => {
     const password = data.password;
     handleLoginUser(email, password)
       .then((result) => {
+        const authToken = result.user.accessToken;
+        if (authToken) {
+          localStorage.setItem("authToken", authToken);
+          // console.log("Token successfully set!");
+        }
         // console.log(result.user);
         Swal.fire({
           position: "top-end",
@@ -30,6 +39,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1000,
         });
+        router.push(redirectPath || "/");
       })
       .catch((error) => {
         Swal.fire({

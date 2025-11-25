@@ -1,17 +1,19 @@
 "use client";
 import Container from "@/componets/Container";
 import { AuthContext } from "@/context/AuthContext";
+import useAuth from "@/hooks/useAuth";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { use, useEffect, useState } from "react";
+import { use, useContext, useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa6";
 import { IoLogIn } from "react-icons/io5";
 import { LuLogOut } from "react-icons/lu";
 import Swal from "sweetalert2";
 
 const NavBar = () => {
-  const { user, handleLogout } = use(AuthContext);
+  const { user, handleLogout } = useContext(AuthContext);
   const router = useRouter();
+  const { isAuthenticated, isLoading } = useAuth();
   // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   // useEffect(() => {
@@ -55,7 +57,7 @@ const NavBar = () => {
         </Link>
       </li>
       <li>
-        <Link href="/be-a-doner" className="text-secondary font-medium">
+        <Link href="/be-doners" className="text-secondary font-medium">
           Be a Doner
         </Link>
       </li>
@@ -65,13 +67,8 @@ const NavBar = () => {
         </Link>
       </li>
       <li>
-        <Link href="/register" className="text-secondary font-medium">
-          Register
-        </Link>
-      </li>
-      <li>
-        <Link href="/login" className="text-secondary font-medium">
-          Login
+        <Link href="/manage-doners" className="text-secondary font-medium">
+          Manage Doners
         </Link>
       </li>
     </>
@@ -138,7 +135,9 @@ const NavBar = () => {
                     <img
                       alt="Tailwind CSS Navbar component"
                       referrerPolicy="no-referrer"
-                      src={user?.photoURL}
+                      src={
+                        user?.photoURL || "https://i.ibb.co.com/ZzPzgRXS/2.png"
+                      }
                     />
                   </div>
                 </div>

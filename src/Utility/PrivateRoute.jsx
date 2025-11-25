@@ -23,7 +23,7 @@ const PrivateRoute = ({ children }) => {
     return null;
   }
 
-  return <>{children}</>;
+  return children;
 };
 
 export default PrivateRoute;

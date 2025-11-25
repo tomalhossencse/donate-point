@@ -1,6 +1,7 @@
 import Container from "@/componets/Container";
 import Banner from "@/componets/home/Banner";
 import HowItWork from "@/componets/home/HowItWork";
+import JoinDonate from "@/componets/home/JoinDonate";
 import RecentDoners from "@/componets/home/RecentDoners";
 
 import Image from "next/image";
@@ -11,6 +12,7 @@ export default function Home() {
       <Banner />
       <RecentDoners />
       <HowItWork />
+      <JoinDonate />
     </Container>
   );
 }

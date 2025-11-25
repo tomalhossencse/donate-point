@@ -49,7 +49,7 @@ body {
 
 
 .btn-primary{
-  @apply btn bg-primary rounded-3xl px-8 py-6 text-xl font-bold text-secondary-content hover:bg-base-100;
+  @apply btn bg-primary rounded-3xl px-8 py-6 text-xl font-bold text-base-100 hover:bg-secondary-content hover:text-secondary;
 }
 .btn-primary-rounded{
   @apply btn bg-primary rounded-xl px-8 py-6 text-xl font-bold text-secondary-content hover:bg-base-100 hover:border-primary hover:border-2 shadow-md hover:shadow-xl;

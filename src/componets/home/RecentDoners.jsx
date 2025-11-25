@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Container from "../Container";
-import DonerCard from "../Doner/DonerCard";
+import DonerCard from "../Issue/DonerCard";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 

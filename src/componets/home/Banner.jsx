@@ -19,7 +19,7 @@ import {
 
 const Banner = () => {
   return (
-    <div className="mt-4 mb-10 bg-accent-content">
+    <div className="mt-4 mb-10 bg-accent-content rounded-2xl overflow-hidden">
       <Swiper
         modules={[Pagination, Scrollbar, A11y, Autoplay, EffectFade]}
         spaceBetween={30}
@@ -35,7 +35,7 @@ const Banner = () => {
         className="bg-accent-content max-w-7xl mx-auto"
       >
         <SwiperSlide>
-          <div className="flex flex-col md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
+          <div className="flex flex-col gap-6 md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
             <div className="md:w-1/2 text-center md:text-left space-y-4">
               <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-accent">
                 Donate Your Blood to Us, Save More Life Together
@@ -45,9 +45,7 @@ const Banner = () => {
                 donors. Together, your support helps hospitals and patients
                 receive life-saving blood when it’s needed most.
               </p>
-              <button className="px-6 py-3 bg-primary text-white font-bold text-md rounded-md shadow-md hover:bg-black transition-transform hover:scale-105">
-                Help Man Now
-              </button>
+              <button className="btn-primary">Help Man Now</button>
             </div>
 
             <div className="md:w-1/2 flex justify-center py-8">
@@ -60,7 +58,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="flex flex-col md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
+          <div className="flex flex-col md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 gap-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
             <div className="md:w-1/2 text-center md:text-left space-y-4">
               <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-accent">
                 Become a Hero — Your Blood Can Save Lives
@@ -70,9 +68,7 @@ const Banner = () => {
                 life-saving community and make a real impact with every drop you
                 give.
               </p>
-              <button className="px-6 py-3 bg-primary text-white font-bold text-md rounded-md shadow-md hover:bg-black transition-transform hover:scale-105">
-                Donate Blood Today
-              </button>
+              <button className="btn-primary">Donate Blood Today</button>
             </div>
 
             <div className="md:w-1/2 flex justify-center py-8">
@@ -85,7 +81,7 @@ const Banner = () => {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="flex flex-col md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
+          <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
             <div className="md:w-1/2 text-center md:text-left space-y-4">
               <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-accent">
                 Your Blood Donation Brings Hope to Families
@@ -95,9 +91,7 @@ const Banner = () => {
                 individuals fighting for life. Your kindness can bring hope
                 where it’s needed most.
               </p>
-              <button className="px-6 py-3 bg-primary text-white font-bold text-md rounded-md shadow-md hover:bg-black transition-transform hover:scale-105">
-                Save a Life Now
-              </button>
+              <button className="btn-primary">Save a Life Now</button>
             </div>
 
             <div className="md:w-1/2 flex justify-center py-8">
