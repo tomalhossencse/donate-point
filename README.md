@@ -1,37 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Doner Point 🩸 | The Life-Saving Blood Drive
+⚡ Short Project Description
+Doner Point is a responsive, full-stack web application dedicated to connecting blood donors with patients in need. Our platform ensures a safe, secure, and efficient process for blood donation requests and contributions.
+Key Features:
+Donor Registration: Easy sign-up for new blood donors.
+Search Functionality: Users can search for available donors based on blood group and location.
+Real-time Matching: Get notified when a nearby patient needs your blood type.
+Contribution Management: Donors can manage and track their life-saving contributions.
+🛠️ Setup & Installation Instructions
+Follow these steps to get a local copy of Doner Point up and running for development and testing.
+Prerequisites
+You will need the following software installed on your machine:
+Node.js (LTS version recommended)
+MongoDB (A running instance or access to a cloud cluster like MongoDB Atlas)
+Git
 
-## Getting Started
+1. Clone the Client Repository
+   git clone https://github.com/tomalhossencse/donate-point.git
+   cd doner-point
 
-First, run the development server:
+2. Configure Environment Variables
+   Create a file named .env in the root directory of the project and populate it with your configuration details.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Example .env file content
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Database
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+MONGO_URI=<YOUR_MONGODB_CONNECTION_STRING>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Authentication (e.g., Firebase)
 
-## Learn More
+# FIREBASE_SERVICE_ACCOUNT=... (if applicable)
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the Server Repository
+   git clone https://github.com/tomalhossencse/donate-point-server.git
+   cd doner-point-server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🗺️ Route Summary
+The application provides both public and authenticated API and client routes.
+Client-Side Routes (Frontend)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Public**
 
-## Deploy on Vercel
+1. Home page : with latest donors, "How it works" section, and CTA.
+2. /search-doners: Page for searching registered donors by blood group and location.
+3. /register : User and Donor registration form.
+4. /login : User login page.
+5. /manage-doners : Main user dashboard summary.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# donate-point
+- View and manage donor profiles added by the logged-in user.
+  🤝 Contributing
+  We welcome contributions! If you have suggestions or find a bug, please open an issue or submit a pull request.
