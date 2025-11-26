@@ -4,8 +4,6 @@ import HowItWork from "@/componets/home/HowItWork";
 import JoinDonate from "@/componets/home/JoinDonate";
 import RecentDoners from "@/componets/home/RecentDoners";
 
-import Image from "next/image";
-
 export default function Home() {
   return (
     <Container className="min-h-screen pt-20 px-6">

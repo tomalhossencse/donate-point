@@ -2,6 +2,7 @@
 import Container from "@/componets/Container";
 import { AuthContext } from "@/context/AuthContext";
 import useAuth from "@/hooks/useAuth";
+import useAuthentication from "@/Utility/UseAuthentication";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { use, useContext, useEffect, useState } from "react";
@@ -14,6 +15,7 @@ const NavBar = () => {
   const { user, handleLogout } = useContext(AuthContext);
   const router = useRouter();
   const { isAuthenticated, isLoading } = useAuth();
+  const { user: users } = useAuthentication();
   // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   // useEffect(() => {
@@ -66,11 +68,21 @@ const NavBar = () => {
           Search Doners
         </Link>
       </li>
-      <li>
-        <Link href="/manage-doners" className="text-secondary font-medium">
-          Manage Doners
-        </Link>
-      </li>
+
+      {!users && (
+        <li>
+          <Link href="/register" className="text-secondary font-medium">
+            Register
+          </Link>
+        </li>
+      )}
+      {users && (
+        <li>
+          <Link href="/manage-doners" className="text-secondary font-medium">
+            Manage Doners
+          </Link>
+        </li>
+      )}
     </>
   );
   return (
@@ -111,11 +123,11 @@ const NavBar = () => {
               href={"/"}
               className="btn btn-ghost text-[24px] text-primary font-bold"
             >
-              {/* <img
-                className="h-8 mr-2"
-                src="https://i.ibb.co.com/4gjvRwFN/logo.png"
+              <img
+                className="h-10"
+                src="https://img.icons8.com/bubbles/100/drop-of-blood.png"
                 alt=""
-              />{" "} */}
+              />
               Doner Point
             </Link>
           </div>

@@ -1,10 +1,13 @@
+"use client";
 import React from "react";
 import { FaSquareXTwitter, FaLinkedin } from "react-icons/fa6";
 import { FaFacebookSquare } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import Container from "@/componets/Container";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+  const router = useRouter();
   return (
     <div className="bg-primary text-white pt-8">
       <Container>
@@ -12,13 +15,22 @@ const Footer = () => {
           <div className="grid grid-cols-2  lg:grid-cols-6 justify-between py-16 gap-10 text-sm p-6">
             <div className="col-span-2">
               <div className="flex">
-                <h1 className="text-xl font-medium pb-6 cursor-pointer">
-                  doner-point
-                </h1>{" "}
+                <div
+                  onClick={() => router.push("/")}
+                  className="text-2xl font-medium pb-6 cursor-pointer flex items-center gap-4"
+                >
+                  <img
+                    src="https://img.icons8.com/bubbles/100/drop-of-blood.png"
+                    className="w-12"
+                  />{" "}
+                  <span>Doner Point</span>
+                </div>
               </div>
               <p className="text-white">
-                At doner-point,it helps users report and track local issues like
-                garbage, illegal construction, broken public property.
+                Blood Donor Point connects donors with those in need. Search for
+                donors by blood group and location quickly. Register and
+                contribute to saving lives in your community. Together, we can
+                make a difference, one donation at a time.
               </p>
             </div>
             <div className=" col-span-1">
