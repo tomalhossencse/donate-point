@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Suspense } from "react";
 import LoginForm from "./Login/LoginForm";
 
 const page = () => {
   return (
     <div>
-      <LoginForm />
+      <Suspense fallback={<p>Loading...</p>}>
+        <LoginForm />
+      </Suspense>
     </div>
   );
 };
