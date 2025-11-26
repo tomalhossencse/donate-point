@@ -37,7 +37,7 @@ const DonerDetails = () => {
         <div
           className="md:flex justify-between gap-12 items-center bg-base-200 py-16 px rounded-xl space-y-4 shadow-md 
             transform transition duration-300 ease-in-out 
-            hover:scale-105 hover:bg-accent-content hover:-translate-y-1"
+            hover:scale-105  hover:-translate-y-1"
         >
           <div className="flex-2 p-2 w-[300px]">
             <img
@@ -59,7 +59,7 @@ const DonerDetails = () => {
                 <span>{doner.number}</span>
               </div>
               <div className="bg-secondary-content text-black px-4 py-2 rounded-md my-2 flex gap-2 items-center">
-                <div className="text-base-100">
+                <div>
                   <MdMarkEmailRead size={20} />
                 </div>
                 <span>{doner.email}</span>
@@ -86,18 +86,16 @@ const DonerDetails = () => {
                 <IoShareSocialSharp size={20} />
               </div>
               <p>
-                <span className="font-bold text-primary hidden md:block">
-                  Contributor :
-                </span>{" "}
+                <span className="font-bold text-primary">Contributor :</span>{" "}
                 {doner.contributerEmail}
               </p>
             </div>
 
             {/* information */}
-            <div className="bg-base-300 w-full md:w-3/4 px-4 py-4 rounded-m">
+            <div className="bg-accent text-base-100 w-full md:w-4/5 px-4 py-4 rounded-md">
               {doner.information}
             </div>
-            <div className=" flex flex-wrap gap-10 items-center justify-center text-accent">
+            <div className="grid md:grid-cols-4 grid-cols-2  md:gap-10  gap-6 items-center justify-center text-accent">
               <div className="flex  items-center justify-center gap-1">
                 <span className="text-primary">
                   <MdBloodtype size={24} />
