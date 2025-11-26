@@ -8,7 +8,7 @@ import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
-const Login = () => {
+const page = () => {
   const { handleLoginUser } = useContext(AuthContext);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -127,4 +127,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default page;
