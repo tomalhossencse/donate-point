@@ -17,7 +17,12 @@ const NavBar = () => {
   const pathname = usePathname();
   const { isAuthenticated, isLoading } = useAuth();
   const { user: users } = useAuthentication();
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState("light"); // safe default
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+  }, []);
 
   useEffect(() => {
     const html = document.querySelector("html");
