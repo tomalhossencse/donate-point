@@ -1,6 +1,5 @@
 "use client";
 import Container from "@/componets/Container";
-import useAuth from "@/hooks/useAuth";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import Animation from "@/Utility/Animation";
 import PrivateRoute from "@/Utility/PrivateRoute";

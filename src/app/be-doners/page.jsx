@@ -50,7 +50,7 @@ const Doner = () => {
   const handleBeDoner = async (data) => {
     data.contributerEmail = user.email;
     data.createAt = DateFormat(new Date());
-    console.log(data);
+    // console.log(data);
     await axiosSecure
       .post("/doners", data)
       .then((res) => {

@@ -17,17 +17,17 @@ const NavBar = () => {
   const pathname = usePathname();
   const { isAuthenticated, isLoading } = useAuth();
   const { user: users } = useAuthentication();
-  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  // useEffect(() => {
-  //   const html = document.querySelector("html");
-  //   html.setAttribute("data-theme", theme);
-  //   localStorage.setItem("theme", theme);
-  // }, [theme]);
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-  // const handleTheme = (checked) => {
-  //   setTheme(checked ? "dark" : "light");
-  // };
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
 
   const logoutUser = () => {
     handleLogout()
@@ -104,23 +104,37 @@ const NavBar = () => {
         </li>
       )}
       {users && (
-        <li className="mr-4">
-          <Link
-            href="/manage-doners"
-            className={` ${
-              pathname === "/manage-doners"
-                ? "font-bold text-primary"
-                : "text-secondary"
-            }`}
-          >
-            Manage Doners
-          </Link>
-        </li>
+        <>
+          <li className="mr-4">
+            <Link
+              href="/profile"
+              className={` ${
+                pathname === "/profile"
+                  ? "font-bold text-primary"
+                  : "text-secondary"
+              }`}
+            >
+              Profile
+            </Link>
+          </li>
+          <li className="mr-4">
+            <Link
+              href="/manage-doners"
+              className={` ${
+                pathname === "/manage-doners"
+                  ? "font-bold text-primary"
+                  : "text-secondary"
+              }`}
+            >
+              Manage Doners
+            </Link>
+          </li>
+        </>
       )}
     </>
   );
   return (
-    <div className="bg-base-100 shadow-md fixed w-full top-0 z-20 md:px-0 px-4">
+    <div className="bg-base-100 shadow-md fixed w-full top-0 z-20 md:px-0 px-2">
       <Container>
         <div className="navbar">
           <div className="navbar-start">
@@ -155,10 +169,10 @@ const NavBar = () => {
             </div>
             <Link
               href={"/"}
-              className="btn btn-ghost text-[24px] text-primary font-bold"
+              className="btn btn-ghost text-lg text-primary font-bold"
             >
               <img
-                className="h-10"
+                className="h-8"
                 src="https://img.icons8.com/bubbles/100/drop-of-blood.png"
                 alt=""
               />
@@ -179,8 +193,6 @@ const NavBar = () => {
                 >
                   <div className="w-9 border-2 border-gray-300 rounded-full">
                     <img
-                      alt="Tailwind CSS Navbar component"
-                      referrerPolicy="no-referrer"
                       src={
                         user?.photoURL || "https://i.ibb.co.com/ZzPzgRXS/2.png"
                       }
@@ -220,7 +232,7 @@ const NavBar = () => {
               </Link>
             )}
 
-            <div className="px-10">
+            <div className="px-4">
               {" "}
               <label className="flex cursor-pointer gap-2">
                 <svg
@@ -238,9 +250,9 @@ const NavBar = () => {
                   <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
                 </svg>
                 <input
-                  // onChange={(e) => handleTheme(e.target.checked)}
+                  onChange={(e) => handleTheme(e.target.checked)}
                   type="checkbox"
-                  // defaultChecked={localStorage.getItem("theme") === "dark"}
+                  defaultChecked={localStorage.getItem("theme") === "dark"}
                   className="toggle theme-controller"
                 />
                 <svg
