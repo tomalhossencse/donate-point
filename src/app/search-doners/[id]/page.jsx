@@ -2,6 +2,7 @@
 import Container from "@/componets/Container";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import Animation from "@/Utility/Animation";
+import PrivateRoute from "@/Utility/PrivateRoute";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
@@ -31,104 +32,106 @@ const DonerDetails = () => {
   if (isLoading) return <Animation />;
   if (error) return <p>Error loading donor details</p>;
   return (
-    <Container className="md:min-h-screen md:mt-30 mt-8 md:p-6 p-4">
-      <div
-        className="md:flex justify-between gap-12 items-center bg-base-200 py-16 px rounded-xl space-y-4 shadow-md 
+    <PrivateRoute>
+      <Container className="md:min-h-screen md:mt-30 mt-8 md:p-6 p-4">
+        <div
+          className="md:flex justify-between gap-12 items-center bg-base-200 py-16 px rounded-xl space-y-4 shadow-md 
             transform transition duration-300 ease-in-out 
             hover:scale-105 hover:bg-accent-content hover:-translate-y-1"
-      >
-        <div className="flex-2 p-2 w-[300px]">
-          <img
-            className="rounded-xl w-full h-full object-cover"
-            src="https://i.ibb.co.com/CpL3c0dC/Asset-1.png"
-          />
-        </div>
-        <div className="flex-3 flex flex-col justify-center items-start px-2 space-y-4">
-          <div className="flex gap-2 text-2xl md:text-3xl font-bold items-center justify-center text-primary">
-            <FaRegCircleUser />
-            <span className="">{doner.name.toUpperCase()}</span>
+        >
+          <div className="flex-2 p-2 w-[300px]">
+            <img
+              className="rounded-xl w-full h-full object-cover"
+              src="https://i.ibb.co.com/CpL3c0dC/Asset-1.png"
+            />
           </div>
-          {/* contact */}
-          <div className="md:flex gap-4">
-            <div className="bg-primary text-base-100 px-4 py-2 rounded-md my-2 flex gap-2 items-center">
-              <div>
-                <FaPhoneVolume />
+          <div className="flex-3 flex flex-col justify-center items-start px-2 space-y-4">
+            <div className="flex gap-2 text-2xl md:text-3xl font-bold items-center justify-center text-primary">
+              <FaRegCircleUser />
+              <span className="">{doner.name.toUpperCase()}</span>
+            </div>
+            {/* contact */}
+            <div className="md:flex gap-4">
+              <div className="bg-primary text-base-100 px-4 py-2 rounded-md my-2 flex gap-2 items-center">
+                <div>
+                  <FaPhoneVolume />
+                </div>
+                <span>{doner.number}</span>
               </div>
-              <span>{doner.number}</span>
-            </div>
-            <div className="bg-secondary-content text-black px-4 py-2 rounded-md my-2 flex gap-2 items-center">
-              <div className="text-base-100">
-                <MdMarkEmailRead size={20} />
+              <div className="bg-secondary-content text-black px-4 py-2 rounded-md my-2 flex gap-2 items-center">
+                <div className="text-base-100">
+                  <MdMarkEmailRead size={20} />
+                </div>
+                <span>{doner.email}</span>
               </div>
-              <span>{doner.email}</span>
             </div>
-          </div>
-          <div className="md:flex">
-            {/* area */}
-            <div className="flex items-center gap-2 text-lg text-secondary md:px-4 py-4 rounded-md ">
-              <FaMapMarkedAlt size={24} />
-              <span>{doner.area}</span>
+            <div className="md:flex">
+              {/* area */}
+              <div className="flex items-center gap-2 text-lg text-secondary md:px-4 py-4 rounded-md ">
+                <FaMapMarkedAlt size={24} />
+                <span>{doner.area}</span>
+              </div>
+              {/* Added time */}
+              <div className="rounded-md flex gap-2 items-center">
+                <div className="text-primary">
+                  <IoIosTime size={24} />
+                </div>
+                <p>{doner.createAt}</p>
+              </div>
             </div>
-            {/* Added time */}
-            <div className="rounded-md flex gap-2 items-center">
+
+            {/* contributer email */}
+            <div className="md:px-4 md:py-2 rounded-md flex gap-2 items-center">
               <div className="text-primary">
-                <IoIosTime size={24} />
+                <IoShareSocialSharp size={20} />
               </div>
-              <p>{doner.createAt}</p>
-            </div>
-          </div>
-
-          {/* contributer email */}
-          <div className="md:px-4 md:py-2 rounded-md flex gap-2 items-center">
-            <div className="text-primary">
-              <IoShareSocialSharp size={20} />
-            </div>
-            <p>
-              <span className="font-bold text-primary hidden md:block">
-                Contributor :
-              </span>{" "}
-              {doner.contributerEmail}
-            </p>
-          </div>
-
-          {/* information */}
-          <div className="bg-base-300 w-full md:w-3/4 px-4 py-4 rounded-m">
-            {doner.information}
-          </div>
-          <div className=" flex flex-wrap gap-10 items-center justify-center text-accent">
-            <div className="flex  items-center justify-center gap-1">
-              <span className="text-primary">
-                <MdBloodtype size={24} />
-              </span>
-              <span className="text-primary font-bold text-xl">
-                {doner.bloodGroup}
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-1">
-              <span>
-                <CiLocationOn />
-              </span>
-              <span>
-                {doner.district}, {doner.region}
-              </span>
-            </div>
-            <div className="flex items-center justify-center gap-1">
-              <span>
-                <HiCalendarDateRange />
-              </span>
-              <span>{doner.age} years</span>
+              <p>
+                <span className="font-bold text-primary hidden md:block">
+                  Contributor :
+                </span>{" "}
+                {doner.contributerEmail}
+              </p>
             </div>
 
-            <button onClick={() => router.back()} className="btn-small">
-              <span>
-                <IoMdArrowRoundBack size={18} />
-              </span>
-              <span>Back</span>
-            </button>
+            {/* information */}
+            <div className="bg-base-300 w-full md:w-3/4 px-4 py-4 rounded-m">
+              {doner.information}
+            </div>
+            <div className=" flex flex-wrap gap-10 items-center justify-center text-accent">
+              <div className="flex  items-center justify-center gap-1">
+                <span className="text-primary">
+                  <MdBloodtype size={24} />
+                </span>
+                <span className="text-primary font-bold text-xl">
+                  {doner.bloodGroup}
+                </span>
+              </div>
+              <div className="flex items-center justify-center gap-1">
+                <span>
+                  <CiLocationOn />
+                </span>
+                <span>
+                  {doner.district}, {doner.region}
+                </span>
+              </div>
+              <div className="flex items-center justify-center gap-1">
+                <span>
+                  <HiCalendarDateRange />
+                </span>
+                <span>{doner.age} years</span>
+              </div>
+
+              <button onClick={() => router.back()} className="btn-small">
+                <span>
+                  <IoMdArrowRoundBack size={18} />
+                </span>
+                <span>Back</span>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </PrivateRoute>
   );
 };
 
