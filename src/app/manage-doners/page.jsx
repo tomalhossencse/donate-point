@@ -49,7 +49,7 @@ const ManageDoners = () => {
   return (
     <PrivateRoute>
       <Container className={"mt-24 mb-12 pb-4 md:px-12 px-6 md:min-h-screen"}>
-        <div className="md:text-2xl text-xl font-semibold md:w-[350px] w-[320px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
+        <div className="md:text-2xl text-xl font-semibold md:w-[450px] w-[320px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
           Added by {user?.displayName}
         </div>
         <div className="overflow-x-auto w-full pt-6">

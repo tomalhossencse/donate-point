@@ -3,7 +3,7 @@ import React from "react";
 
 const useAxiosSecure = () => {
   const axiosSecure = axios.create({
-    baseURL: "http://localhost:4000",
+    baseURL: "https://donate-point-server.vercel.app",
   });
   return axiosSecure;
 };
