@@ -21,6 +21,12 @@ Git
 2. Configure Environment Variables
    Create a file named .env in the root directory of the project and populate it with your configuration details.
 
+3. Clone the Server Repository
+   git clone https://github.com/tomalhossencse/donate-point-server.git
+   cd doner-point-server
+
+- Live Link : https://donate-point.vercel.app/
+
 # Example .env file content
 
 # Database
@@ -30,10 +36,6 @@ MONGO_URI=<YOUR_MONGODB_CONNECTION_STRING>
 # Authentication (e.g., Firebase)
 
 # FIREBASE_SERVICE_ACCOUNT=... (if applicable)
-
-1. Clone the Server Repository
-   git clone https://github.com/tomalhossencse/donate-point-server.git
-   cd doner-point-server
 
 🗺️ Route Summary
 The application provides both public and authenticated API and client routes.
