@@ -95,7 +95,7 @@ const DonerDetails = () => {
             <div className="bg-accent text-base-100 w-full md:w-4/5 px-4 py-4 rounded-md">
               {doner.information}
             </div>
-            <div className="grid md:grid-cols-4 grid-cols-2  md:gap-10  gap-6 items-center justify-center text-accent">
+            <div className="flex flex-wrap gap-6 items-center justify-center text-accent">
               <div className="flex  items-center justify-center gap-1">
                 <span className="text-primary">
                   <MdBloodtype size={24} />
