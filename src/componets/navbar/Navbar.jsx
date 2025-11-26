@@ -17,19 +17,7 @@ const NavBar = () => {
   const pathname = usePathname();
   const { isAuthenticated, isLoading } = useAuth();
   const { user: users } = useAuthentication();
-  const [theme, setTheme] = useState("light"); // safe default
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setTheme(savedTheme);
-  }, []);
-
-  useEffect(() => {
-    const html = document.querySelector("html");
-    html.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
+  const [theme, setTheme] = useState("light");
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
@@ -245,7 +233,7 @@ const NavBar = () => {
                 <input
                   onChange={(e) => handleTheme(e.target.checked)}
                   type="checkbox"
-                  defaultChecked={localStorage.getItem("theme") === "dark"}
+                  defaultValue={theme}
                   className="toggle theme-controller"
                 />
                 <svg
