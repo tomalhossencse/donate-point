@@ -2,17 +2,18 @@
 import Container from "@/componets/Container";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React from "react";
 import { CiLocationOn } from "react-icons/ci";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { FaPhoneVolume, FaRegCircleUser } from "react-icons/fa6";
 import { HiCalendarDateRange } from "react-icons/hi2";
-import { IoIosTime } from "react-icons/io";
+import { IoIosTime, IoMdArrowRoundBack } from "react-icons/io";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { MdBloodtype, MdMarkEmailRead } from "react-icons/md";
 
 const DonerDetails = () => {
+  const router = useRouter();
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
   const {
@@ -114,6 +115,13 @@ const DonerDetails = () => {
               </span>
               <span>{doner.age} years</span>
             </div>
+
+            <button onClick={() => router.back()} className="btn-small">
+              <span>
+                <IoMdArrowRoundBack size={18} />
+              </span>
+              <span>Back</span>
+            </button>
           </div>
         </div>
       </div>

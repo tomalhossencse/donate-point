@@ -2,9 +2,14 @@
 import Container from "@/componets/Container";
 import useAuth from "@/hooks/useAuth";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import PrivateRoute from "@/Utility/PrivateRoute";
 import useAuthentication from "@/Utility/UseAuthentication";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import React from "react";
+import { FaEye } from "react-icons/fa";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+import Swal from "sweetalert2";
 
 const ManageDoners = () => {
   const { user } = useAuthentication();
@@ -18,11 +23,30 @@ const ManageDoners = () => {
       return res.data;
     },
   });
+
+  // delete
+  const deleteDonerMutation = useMutation({
+    mutationFn: async (_id) => {
+      const res = await axiosSecure.delete(`/doners/${_id}`);
+      return res.data;
+    },
+    onSuccess: () => {
+      refetch();
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Donor deleted successfully",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+    },
+  });
+
   return (
-    <div className="mt-24 pb-4 px-12 min-h-screen">
-      <Container>
-        <div className="text-3xl font-semibold w-[400px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
-          Our Blood Doners
+    <PrivateRoute>
+      <Container className={"mt-24 pb-4 px-12 min-h-screen"}>
+        <div className="text-2xl w-3xl font-semibold  mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
+          Doners Added by {user?.displayName}
         </div>
         <div className="overflow-x-auto w-full pt-6">
           <table className="table w-full table-zebra">
@@ -44,15 +68,8 @@ const ManageDoners = () => {
                 <tr key={doner._id}>
                   <td className="whitespace-nowrap">{index + 1}</td>
                   <td>
-                    <div className="flex items-center gap-3 w-[200px]">
-                      <div className="avatar">
-                        <div className="mask mask-squircle h-10 w-10">
-                          <img src={user?.photoURL} className="object-cover" />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-semibold">{doner.name}</div>
-                      </div>
+                    <div className="w-[180px]">
+                      <div className="font-semibold">{doner.name}</div>
                     </div>
                   </td>
                   <td className="whitespace-nowrap">
@@ -67,24 +84,20 @@ const ManageDoners = () => {
                   </td>
 
                   <td className="flex gap-4">
-                    <button
-                      onClick={
-                        () => document
-                        //   .getElementById(`modal_${issue._id}`)
-                        //   .showModal()
-                      }
-                      className="btn btn-success text-white
-                   btn-xs"
+                    <Link
+                      href={`/search-doners/${doner._id}`}
+                      className="btn-small-2"
                     >
-                      Update
-                    </button>
+                      <FaEye size={14} />
+                      <span>View</span>
+                    </Link>
 
                     <button
-                      //   onClick={() => handleIssueDelete(issue._id)}
-                      className="btn btn-warning text-white
-                   btn-xs"
+                      onClick={() => deleteDonerMutation.mutate(doner._id)}
+                      className="btn-small"
                     >
-                      Delete
+                      <RiDeleteBin5Fill size={16} />
+                      <span>Delete</span>
                     </button>
                   </td>
                 </tr>
@@ -93,7 +106,7 @@ const ManageDoners = () => {
           </table>
         </div>
       </Container>
-    </div>
+    </PrivateRoute>
   );
 };
 
