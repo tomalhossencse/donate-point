@@ -4,16 +4,22 @@ import Container from "../Container";
 import DonerCard from "../Issue/DonerCard";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import Animation from "@/Utility/Animation";
 
 const HowItWork = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: works = [], refetch } = useQuery({
+  const {
+    data: works = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["howItworks"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/howItworks`);
       return res.data;
     },
   });
+  if (isLoading) return <Animation />;
   return (
     <Container className="mb-12">
       <div className="text-3xl font-semibold w-[350px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">

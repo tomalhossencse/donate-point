@@ -1,6 +1,7 @@
 "use client";
 import Container from "@/componets/Container";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import Animation from "@/Utility/Animation";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useRouter } from "next/navigation";
 import React from "react";
@@ -27,7 +28,7 @@ const DonerDetails = () => {
       return res.data;
     },
   });
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <Animation />;
   if (error) return <p>Error loading donor details</p>;
   return (
     <Container className="min-h-screen mt-30 p-6">

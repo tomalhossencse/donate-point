@@ -15,11 +15,13 @@
     "axios": "^1.13.2",
     "firebase": "^12.6.0",
     "js-cookie": "^3.0.5",
+    "lottie-react": "^2.4.1",
     "next": "16.0.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-hook-form": "^7.66.1",
     "react-icons": "^5.5.0",
+    "react-spinners": "^0.17.0",
     "sweetalert2": "^11.26.3",
     "swiper": "^12.0.3"
   },

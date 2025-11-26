@@ -2,18 +2,24 @@
 import Container from "@/componets/Container";
 import DonerCard from "@/componets/Issue/DonerCard";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import Animation from "@/Utility/Animation";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const SearchDoners = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: doners = [], refetch } = useQuery({
+  const {
+    data: doners = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["doners"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/doners`);
       return res.data;
     },
   });
+  if (isLoading) return <Animation />;
   return (
     <Container className="mt-24 min-h-screen px-6">
       <div className="text-3xl font-semibold w-[400px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">

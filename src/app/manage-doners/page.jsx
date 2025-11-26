@@ -2,6 +2,7 @@
 import Container from "@/componets/Container";
 import useAuth from "@/hooks/useAuth";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import Animation from "@/Utility/Animation";
 import PrivateRoute from "@/Utility/PrivateRoute";
 import useAuthentication from "@/Utility/UseAuthentication";
 import { useMutation, useQuery } from "@tanstack/react-query";
@@ -14,7 +15,11 @@ import Swal from "sweetalert2";
 const ManageDoners = () => {
   const { user } = useAuthentication();
   const axiosSecure = useAxiosSecure();
-  const { data: doners = [], refetch } = useQuery({
+  const {
+    data: doners = [],
+    refetch,
+    isLoading,
+  } = useQuery({
     queryKey: ["mydoners", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(
@@ -41,7 +46,7 @@ const ManageDoners = () => {
       });
     },
   });
-
+  if (isLoading) return <Animation />;
   return (
     <PrivateRoute>
       <Container className={"mt-24 pb-4 px-12 min-h-screen"}>

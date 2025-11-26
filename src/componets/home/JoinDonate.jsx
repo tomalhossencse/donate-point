@@ -22,7 +22,7 @@ const JoinDonate = () => {
             life today!
           </p>
           <button
-            onClick={() => router.push("/be-a-doner")}
+            onClick={() => router.push("/be-doners")}
             className="btn-primary"
           >
             Donate Life

@@ -1,7 +1,6 @@
 "use client";
 import Container from "@/componets/Container";
 import React, { useContext } from "react";
-import bloodBankData from "../../../public/BloodBank.json";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "@/context/AuthContext";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
@@ -9,6 +8,8 @@ import { useRouter } from "next/navigation";
 import PrivateRoute from "@/Utility/PrivateRoute";
 import Swal from "sweetalert2";
 import { DateFormat } from "@/Utility/FormetDate";
+import { useQuery } from "@tanstack/react-query";
+import Animation from "@/Utility/Animation";
 
 const Rider = () => {
   const { user } = useContext(AuthContext);
@@ -23,6 +24,17 @@ const Rider = () => {
 
   const bloodGroups = ["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"];
 
+  const {
+    data: bloodBankData = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["bloodBanks"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/bloodBanks`);
+      return res.data;
+    },
+  });
   const regionsDuplicate = bloodBankData.map((center) => center.region);
   const bloodData = [...new Set(regionsDuplicate)];
   const region = watch("region");
@@ -64,7 +76,7 @@ const Rider = () => {
         });
       });
   };
-
+  if (isLoading) return <Animation />;
   return (
     <PrivateRoute>
       <Container className="my-24 px-6 min-h-screen">
