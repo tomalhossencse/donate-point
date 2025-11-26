@@ -21,10 +21,8 @@ const RecentDoners = () => {
   });
   if (isLoading) return <Animation />;
   return (
-    <Container className="my-16 px-6">
-      <div className="text-3xl font-semibold w-[350px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
-        Latest Doners
-      </div>
+    <Container className="my-16 md:px-6">
+      <div className="section-title">Latest Doners</div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:p-0 p-4 mt-12">
         {" "}

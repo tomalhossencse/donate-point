@@ -79,12 +79,10 @@ const SearchDoners = () => {
   if (isLoading) return <Animation />;
   return (
     <Container className="mt-24 min-h-screen px-6">
-      <div className="text-3xl font-semibold w-[400px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-10">
-        Our Blood Doners
-      </div>
+      <div className="section-title">Our Blood Doners</div>
 
-      <div className="flex gap-4 mb-6 flex-2 justify-end">
-        <p className="md:text-2xl text-md text-primary font-semibold flex-1">
+      <div className="grid gap-4 mb-6 md:flex  grid-cols-3 md:mt-8  justify-center items-center">
+        <p className="text-2xl text-primary font-semibold flex-1 col-span-3">
           Doners found : ({filterDoners.length})
         </p>
 
@@ -102,7 +100,7 @@ const SearchDoners = () => {
 
         {/* Region Filter */}
         <select
-          className="select select-bordered w-[180px]"
+          className="select select-bordered w-[120px] md:w-[180px]"
           {...register("region")}
           defaultValue={""}
         >
@@ -116,7 +114,7 @@ const SearchDoners = () => {
 
         <select
           defaultValue={""}
-          className="select select-bordered w-[180px]"
+          className="select select-bordered md:w-[180px] md:col-span-2"
           // disabled={!selectedRegion}
           {...register("district")}
         >
@@ -131,11 +129,11 @@ const SearchDoners = () => {
 
         {/* Blood Group Filter */}
         <select
-          className="select select-bordered w-[160px]"
+          className="select select-bordered w-[120px]"
           {...register("bloodGroup")}
           defaultValue=""
         >
-          <option value="">All Blood Group</option>
+          <option value="">All BG</option>
           {bloodGroups.map((bg, index) => (
             <option key={index} value={bg}>
               {bg}

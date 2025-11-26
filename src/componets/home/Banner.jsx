@@ -37,10 +37,10 @@ const Banner = () => {
         <SwiperSlide>
           <div className="flex flex-col gap-6 md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
             <div className="md:w-1/2 text-center md:text-left space-y-4">
-              <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-accent">
+              <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-primary">
                 Donate Your Blood to Us, Save More Life Together
               </h1>
-              <p className="text-sm md:text-md lg:text-lg text-accent">
+              <p className="text-sm md:text-md lg:text-lg text-black">
                 We ensure safe, secure, and efficient blood donation for all
                 donors. Together, your support helps hospitals and patients
                 receive life-saving blood when it’s needed most.
@@ -60,10 +60,10 @@ const Banner = () => {
         <SwiperSlide>
           <div className="flex flex-col md:flex-row items-center justify-between bg-accent-content px-6 md:px-10 py-6 gap-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
             <div className="md:w-1/2 text-center md:text-left space-y-4">
-              <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-accent">
+              <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-primary">
                 Become a Hero — Your Blood Can Save Lives
               </h1>
-              <p className="text-sm md:text-md lg:text-lg text-accent">
+              <p className="text-sm md:text-md lg:text-lg  text-black">
                 A single donation can save up to three lives. Join our
                 life-saving community and make a real impact with every drop you
                 give.
@@ -83,10 +83,10 @@ const Banner = () => {
         <SwiperSlide>
           <div className="flex flex-col md:flex-row gap-6 items-center justify-between bg-accent-content px-6 md:px-10 py-6 bg-[url('https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg')]">
             <div className="md:w-1/2 text-center md:text-left space-y-4">
-              <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-accent">
+              <h1 className="text-2xl md:text-3xl lg:4xl font-bold text-primary">
                 Your Blood Donation Brings Hope to Families
               </h1>
-              <p className="text-sm md:text-md lg:text-lg text-accent">
+              <p className="text-sm md:text-md lg:text-lg  text-black">
                 Every donation helps emergency patients, children, and
                 individuals fighting for life. Your kindness can bring hope
                 where it’s needed most.

@@ -33,15 +33,21 @@ body {
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-base-200 : #EAECED;
-  --color-base-300 : #DADADA;
+  /* --color-base-200 : #EAECED; */
+  /* --color-base-300 : #DADADA; */
   --color-primary: #E0294C;
   --color-secondary: #03373D;
-  --color-primary-content : #606060;
+  /* --color-primary-content : #606060; */
   --color-secondary-content: #CAEB66;
-  --color-base-300 : #e7e7e7;
+  /* --color-base-300 : #e7e7e7; */
   --color-accent: #4D4D4D;
-  --color-accent-content :#F5F7FA;
+  /* --color-accent-content :#F5F7FA; */
+}
+@plugin "daisyui/theme" {
+  name: "dark";
+  --color-primary: #E0294C;
+  --color-secondary-content: #CAEB66;
+
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
@@ -71,4 +77,7 @@ body {
 }
 .navbar .active {
   @apply text-secondary font-bold bg-primary rounded-2xl
+}
+.section-title{
+  @apply md:text-3xl text-2xl font-semibold md:w-[350px] w-[300px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4
 }

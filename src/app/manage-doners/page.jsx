@@ -48,9 +48,9 @@ const ManageDoners = () => {
   if (isLoading) return <Animation />;
   return (
     <PrivateRoute>
-      <Container className={"mt-24 pb-4 px-12 min-h-screen"}>
-        <div className="text-2xl w-3xl font-semibold  mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
-          Doners Added by {user?.displayName}
+      <Container className={"mt-24 mb-12 pb-4 md:px-12 px-6 md:min-h-screen"}>
+        <div className="md:text-2xl text-xl font-semibold md:w-[350px] w-[320px] mx-auto text-base-100 py-2 rounded-4xl bg-primary text-center mb-4">
+          Added by {user?.displayName}
         </div>
         <div className="overflow-x-auto w-full pt-6">
           <table className="table w-full table-zebra">
@@ -81,7 +81,7 @@ const ManageDoners = () => {
                       {doner.bloodGroup}
                     </span>
                   </td>
-                  <td>{doner.age}</td>
+                  <td>{doner.age} Years</td>
                   <td className="whitespace-nowrap">{doner.createAt}</td>
                   <td className="whitespace-nowrap">
                     {doner.district}, {doner.region}

@@ -57,9 +57,7 @@ const NavBar = () => {
       <li className="mr-4">
         <Link
           href="/"
-          className={`${
-            pathname === "/" ? "text-primary font-bold" : "text-secondary"
-          }`}
+          className={`${pathname === "/" && " font-bold text-primary"}`}
         >
           Home
         </Link>
@@ -68,9 +66,7 @@ const NavBar = () => {
         <Link
           href="/be-doners"
           className={`${
-            pathname === "/be-doners"
-              ? "text-primary font-bold"
-              : "text-secondary"
+            pathname === "/be-doners" && " font-bold text-primary"
           }`}
         >
           Be a Doner
@@ -80,9 +76,7 @@ const NavBar = () => {
         <Link
           href="/search-doners"
           className={`${
-            pathname === "/search-doners"
-              ? "text-primary font-bold"
-              : "text-secondary"
+            pathname === "/search-doners" && " font-bold text-primary"
           }`}
         >
           Search Doners
@@ -94,9 +88,7 @@ const NavBar = () => {
           <Link
             href="/register"
             className={`${
-              pathname === "/register"
-                ? " font-bold text-primary"
-                : "text-secondary"
+              pathname === "/register" && " font-bold text-primary"
             }`}
           >
             Register
@@ -109,9 +101,7 @@ const NavBar = () => {
             <Link
               href="/profile"
               className={` ${
-                pathname === "/profile"
-                  ? "font-bold text-primary"
-                  : "text-secondary"
+                pathname === "/profile" && " font-bold text-primary"
               }`}
             >
               Profile
@@ -121,9 +111,7 @@ const NavBar = () => {
             <Link
               href="/manage-doners"
               className={` ${
-                pathname === "/manage-doners"
-                  ? "font-bold text-primary"
-                  : "text-secondary"
+                pathname === "/manage-doners" && " font-bold text-primary"
               }`}
             >
               Manage Doners
@@ -134,7 +122,7 @@ const NavBar = () => {
     </>
   );
   return (
-    <div className="bg-base-100 shadow-md fixed w-full top-0 z-20 md:px-0 px-2">
+    <div className="bg-base-100 shadow-md fixed w-full top-0 z-20 md:px-0 px-1">
       <Container>
         <div className="navbar">
           <div className="navbar-start">
@@ -169,7 +157,7 @@ const NavBar = () => {
             </div>
             <Link
               href={"/"}
-              className="btn btn-ghost text-lg text-primary font-bold"
+              className="btn btn-ghost md:text-lg text-primary font-bold"
             >
               <img
                 className="h-8"

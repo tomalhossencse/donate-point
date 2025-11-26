@@ -39,7 +39,7 @@ const Profile = () => {
   };
 
   return (
-    <Container className="flex flex-col items-center justify-center min-h-[90vh] px-4">
+    <Container className="flex flex-col items-center justify-center mt-24 mb-10 mx-12 md:min-h-[90vh] px-4">
       <div className="card w-full max-w-md bg-base-100 shadow-xl rounded-2xl p-8 hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 border border-gray-100">
         <div className="flex flex-col items-center space-y-4">
           <div className="relative">

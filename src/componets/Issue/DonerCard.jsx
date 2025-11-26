@@ -12,8 +12,8 @@ const DonerCard = ({ doner }) => {
   return (
     <div
       className="flex flex-col bg-base-200 p-6 rounded-xl space-y-4 shadow-md 
-            transform transition duration-300 ease-in-out 
-            hover:scale-105 hover:bg-accent-content hover:-translate-y-1"
+            transform transition duration-600 ease-in-out 
+            hover:scale-105 hover:bg-secondary-content hover:-translate-y-1"
     >
       <ul className="flex justify-between text-accent">
         <li className="flex items-center justify-center gap-1">
