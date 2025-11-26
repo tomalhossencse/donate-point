@@ -4,7 +4,7 @@ import { AuthContext } from "@/context/AuthContext";
 import useAuth from "@/hooks/useAuth";
 import useAuthentication from "@/Utility/UseAuthentication";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { use, useContext, useEffect, useState } from "react";
 import { FaUser } from "react-icons/fa6";
 import { IoLogIn } from "react-icons/io5";
@@ -14,6 +14,7 @@ import Swal from "sweetalert2";
 const NavBar = () => {
   const { user, handleLogout } = useContext(AuthContext);
   const router = useRouter();
+  const pathname = usePathname();
   const { isAuthenticated, isLoading } = useAuth();
   const { user: users } = useAuthentication();
   // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -53,32 +54,65 @@ const NavBar = () => {
   };
   const links = (
     <>
-      <li>
-        <Link href="/" className="text-secondary font-medium">
+      <li className="mr-4">
+        <Link
+          href="/"
+          className={`${
+            pathname === "/" ? "text-primary font-bold" : "text-secondary"
+          }`}
+        >
           Home
         </Link>
       </li>
-      <li>
-        <Link href="/be-doners" className="text-secondary font-medium">
+      <li className="mr-4">
+        <Link
+          href="/be-doners"
+          className={`${
+            pathname === "/be-doners"
+              ? "text-primary font-bold"
+              : "text-secondary"
+          }`}
+        >
           Be a Doner
         </Link>
       </li>
-      <li>
-        <Link href="/search-doners" className="text-secondary font-medium">
+      <li className="mr-4">
+        <Link
+          href="/search-doners"
+          className={`${
+            pathname === "/search-doners"
+              ? "text-primary font-bold"
+              : "text-secondary"
+          }`}
+        >
           Search Doners
         </Link>
       </li>
 
       {!users && (
-        <li>
-          <Link href="/register" className="text-secondary font-medium">
+        <li className="mr-4">
+          <Link
+            href="/register"
+            className={`${
+              pathname === "/register"
+                ? " font-bold text-primary"
+                : "text-secondary"
+            }`}
+          >
             Register
           </Link>
         </li>
       )}
       {users && (
-        <li>
-          <Link href="/manage-doners" className="text-secondary font-medium">
+        <li className="mr-4">
+          <Link
+            href="/manage-doners"
+            className={` ${
+              pathname === "/manage-doners"
+                ? "font-bold text-primary"
+                : "text-secondary"
+            }`}
+          >
             Manage Doners
           </Link>
         </li>
