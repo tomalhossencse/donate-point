@@ -11,7 +11,7 @@ import { DateFormat } from "@/Utility/FormetDate";
 import { useQuery } from "@tanstack/react-query";
 import Animation from "@/Utility/Animation";
 
-const Rider = () => {
+const Doner = () => {
   const { user } = useContext(AuthContext);
   const router = useRouter();
   const axiosSecure = useAxiosSecure();
@@ -292,4 +292,4 @@ const Rider = () => {
   );
 };
 
-export default Rider;
+export default Doner;
