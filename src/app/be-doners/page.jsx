@@ -177,7 +177,7 @@ const Doner = () => {
                       {...register("number", { required: true })}
                     />
                     {errors.number?.type === "required" && (
-                      <p className="text-red-500 py-2">Email Required!</p>
+                      <p className="text-red-500 py-2">Contact No. Required!</p>
                     )}
                   </div>
 
@@ -200,6 +200,7 @@ const Doner = () => {
                   <div>
                     <legend className="fieldset-legend">Your Region</legend>
                     <select
+                      defaultValue={""}
                       className="select w-full md:select-md select-sm"
                       {...register("region", { required: true })}
                     >
@@ -210,8 +211,11 @@ const Doner = () => {
                         <option key={index}>{region}</option>
                       ))}
                     </select>
+                    {errors.region?.type === "required" && (
+                      <p className="text-red-500 py-2">Region Required!</p>
+                    )}
                   </div>
-
+                  {/* district */}
                   <div>
                     <legend className="fieldset-legend">District</legend>
                     <select
@@ -229,6 +233,9 @@ const Doner = () => {
                           </option>
                         ))}
                     </select>
+                    {errors.district?.type === "required" && (
+                      <p className="text-red-500 py-2">District Required!</p>
+                    )}
                   </div>
 
                   {/* area */}

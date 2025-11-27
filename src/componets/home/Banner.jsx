@@ -50,7 +50,7 @@ const Banner = () => {
 
             <div className="md:w-1/2 flex justify-center py-8">
               <img
-                src="https://i.ibb.co.com/nMTVz0r8/oleksii-makarov-rc-LK2wbgq-NE-unsplash.jpg"
+                src="https://i.ibb.co.com/G4w1gwyw/Asset-1.png"
                 className="md:h-[400px] h-[200px]"
               />
             </div>
@@ -73,7 +73,7 @@ const Banner = () => {
 
             <div className="md:w-1/2 flex justify-center py-8">
               <img
-                src="https://i.ibb.co.com/Jj9YPwKF/5137726-2706866-01.jpg"
+                src="https://i.ibb.co.com/3mfjXDY1/Asset-1.png"
                 className="md:h-[400px] h-[200px]"
               />
             </div>
